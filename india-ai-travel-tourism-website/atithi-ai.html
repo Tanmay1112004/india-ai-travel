@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incredible India - Official Tourism Website</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/india.png">
+</head>
+
+<body>
+    <!-- AI Chatbot -->
+    <div class="ai-chatbot-container">
+        <div class="ai-chatbot-header">
+            <div class="ai-chatbot-title">
+                <i class="fas fa-robot"></i>
+                <h3>Incredible India AI Assistant</h3>
+            </div>
+            <button class="ai-chatbot-close">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="ai-chatbot-messages" id="aiChatMessages">
+            <div class="ai-message ai-message-bot">
+                <div class="ai-message-content">
+                    <div class="ai-message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="ai-message-text">
+                        <p>Namaste! 🙏 I'm your Incredible India AI Assistant. I can help you plan your trip, suggest destinations, recommend experiences, and answer all your questions about traveling in India. How can I assist you today?</p>
+                    </div>
+                </div>
+                <div class="ai-message-time">Just now</div>
+            </div>
+        </div>
+        <div class="ai-chatbot-input">
+            <div class="ai-input-wrapper">
+                <input type="text" id="aiChatInput" placeholder="Ask me about destinations, itineraries, food, culture...">
+                <button id="aiChatSend">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+                <button id="aiVoiceInput">
+                    <i class="fas fa-microphone"></i>
+                </button>
+            </div>
+            <div class="ai-quick-questions">
+                <button class="ai-quick-question" data-question="Suggest a 7-day itinerary for Rajasthan">
+                    <i class="fas fa-map"></i> Rajasthan Itinerary
+                </button>
+                <button class="ai-quick-question" data-question="Best places for vegetarian food in India">
+                    <i class="fas fa-utensils"></i> Vegetarian Food
+                </button>
+                <button class="ai-quick-question" data-question="What should I pack for India in November?">
+                    <i class="fas fa-suitcase"></i> Packing Tips
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Chatbot Toggle -->
+    <button class="ai-chatbot-toggle">
+        <i class="fas fa-robot"></i>
+        <span class="ai-chatbot-badge">AI</span>
+    </button>
+
+    <!-- AI Trip Planner Modal -->
+    <div class="ai-trip-planner-modal">
+        <div class="ai-trip-planner-content">
+            <button class="ai-trip-planner-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="ai-trip-planner-header">
+                <i class="fas fa-magic"></i>
+                <h3>AI Trip Planner</h3>
+                <p>Let AI create your perfect Indian adventure</p>
+            </div>
+            <div class="ai-trip-planner-form">
+                <div class="ai-form-group">
+                    <label><i class="fas fa-users"></i> Travelers</label>
+                    <div class="ai-form-input">
+                        <select id="aiTravelers">
+                            <option value="solo">Solo Traveler</option>
+                            <option value="couple" selected>Couple</option>
+                            <option value="family">Family</option>
+                            <option value="friends">Friends</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="ai-form-group">
+                    <label><i class="fas fa-calendar-alt"></i> Duration</label>
+                    <div class="ai-form-input">
+                        <select id="aiDuration">
+                            <option value="3">3-5 Days</option>
+                            <option value="7" selected>7 Days</option>
+                            <option value="10">10 Days</option>
+                            <option value="14">14+ Days</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="ai-form-group">
+                    <label><i class="fas fa-rupee-sign"></i> Budget</label>
+                    <div class="ai-form-input">
+                        <select id="aiBudget">
+                            <option value="budget">Budget ($500-1000)</option>
+                            <option value="mid" selected>Mid-range ($1000-3000)</option>
+                            <option value="luxury">Luxury ($3000+)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="ai-form-group">
+                    <label><i class="fas fa-heart"></i> Interests</label>
+                    <div class="ai-interests">
+                        <label class="ai-interest-checkbox">
+                            <input type="checkbox" value="heritage" checked>
+                            <span><i class="fas fa-landmark"></i> Heritage</span>
+                        </label>
+                        <label class="ai-interest-checkbox">
+                            <input type="checkbox" value="beach" checked>
+                            <span><i class="fas fa-umbrella-beach"></i> Beach</span>
+                        </label>
+                        <label class="ai-interest-checkbox">
+                            <input type="checkbox" value="wildlife">
+                            <span><i class="fas fa-paw"></i> Wildlife</span>
+                        </label>
+                        <label class="ai-interest-checkbox">
+                            <input type="checkbox" value="adventure">
+                            <span><i class="fas fa-hiking"></i> Adventure</span>
+                        </label>
+                        <label class="ai-interest-checkbox">
+                            <input type="checkbox" value="spiritual" checked>
+                            <span><i class="fas fa-pray"></i> Spiritual</span>
+                        </label>
+                        <label class="ai-interest-checkbox">
+                            <input type="checkbox" value="food">
+                            <span><i class="fas fa-utensils"></i> Food</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="ai-form-group">
+                    <label><i class="fas fa-plane"></i> Preferred Region</label>
+                    <div class="ai-form-input">
+                        <select id="aiRegion">
+                            <option value="">All India</option>
+                            <option value="north">North India</option>
+                            <option value="south">South India</option>
+                            <option value="east">East India</option>
+                            <option value="west">West India</option>
+                            <option value="northeast">North-East</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="aiGenerateItinerary" class="ai-generate-btn">
+                    <i class="fas fa-magic"></i>
+                    Generate AI Itinerary
+                    <i class="fas fa-spinner fa-spin ai-loading"></i>
+                </button>
+            </div>
+            <div class="ai-trip-planner-result" id="aiTripResult">
+                <!-- AI Generated content will appear here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-torii-gate"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>INCREDIBLE INDIA</h1>
+                        <p>Ministry of Tourism, Government of India</p>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <div class="language-selector">
+                        <i class="fas fa-globe"></i>
+                        <select>
+                            <option>English</option>
+                            <option>Hindi</option>
+                            <option>Spanish</option>
+                            <option>French</option>
+                        </select>
+                    </div>
+                    <button class="ai-plan-btn" id="openAiPlanner">
+                        <i class="fas fa-magic"></i>
+                        AI Trip Planner
+                    </button>
+                    <button class="book-now-btn">
+                        <i class="fas fa-calendar-check"></i>
+                        Book Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="#home" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#destinations"><i class="fas fa-map-marked-alt"></i> Destinations</a></li>
+                <li><a href="#experiences"><i class="fas fa-compass"></i> Experiences</a></li>
+                <li><a href="#festivals"><i class="fas fa-calendar-alt"></i> Festivals</a></li>
+                <li><a href="#plan"><i class="fas fa-plane"></i> Plan Your Trip</a></li>
+                <li><a href="#gallery"><i class="fas fa-images"></i> Gallery</a></li>
+                <li><a href="#contact"><i class="fas fa-phone-alt"></i> Contact</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-slider">
+            <!-- Slide 1: Taj Mahal -->
+            <div class="hero-slide active" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://plus.unsplash.com/premium_photo-1697730359975-8f1885936530?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+                <div class="hero-content">
+                    <div class="hero-badge animate__animated animate__fadeInDown">
+                        <i class="fas fa-crown"></i>
+                        UNESCO World Heritage
+                    </div>
+                    <h2 class="animate__animated animate__fadeInUp">Taj Mahal - Symbol of Eternal Love</h2>
+                    <p class="hero-subtitle animate__animated animate__fadeInUp">Experience the breathtaking beauty of India's most iconic monument</p>
+                    <button class="explore-btn animate__animated animate__fadeInUp">
+                        <i class="fas fa-play-circle"></i>
+                        Explore Taj Mahal
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <i class="fas fa-clock"></i>
+                        <span>Best Time: Oct-Mar</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Agra, Uttar Pradesh</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-robot"></i>
+                        <span>Ask AI Assistant</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Golden Temple -->
+            <div class="hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://plus.unsplash.com/premium_photo-1697730324062-c012bc98eb13?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-star"></i>
+                        Spiritual Haven
+                    </div>
+                    <h2>Golden Temple - Divine Sanctuary</h2>
+                    <p class="hero-subtitle">Discover the spiritual heart of Sikhism in Amritsar</p>
+                    <button class="explore-btn">
+                        <i class="fas fa-heart"></i>
+                        Spiritual Journey
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <i class="fas fa-clock"></i>
+                        <span>Open 24/7</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-utensils"></i>
+                        <span>Free Langar Meal</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-robot"></i>
+                        <span>Get AI Tips</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Hawa Mahal -->
+            <div class="hero-slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://plus.unsplash.com/premium_photo-1697730373328-26e408d64025?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8SGF3YSUyME1haGFsJTJDJTIwSmFpcHVyfGVufDB8fDB8fHww');">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-landmark"></i>
+                        Architectural Marvel
+                    </div>
+                    <h2>Hawa Mahal - Palace of Winds</h2>
+                    <p class="hero-subtitle">Marvel at the pink city's iconic honeycomb structure</p>
+                    <button class="explore-btn">
+                        <i class="fas fa-eye"></i>
+                        View Architecture
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <i class="fas fa-clock"></i>
+                        <span>9AM - 4:30PM</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-palette"></i>
+                        <span>Pink City Heritage</span>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-robot"></i>
+                        <span>AI Guide</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slider Controls -->
+        <div class="slider-controls">
+            <button class="slider-btn prev-slide">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="slider-btn next-slide">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <!-- Slider Dots -->
+        <div class="slider-dots">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
+        </div>
+
+        <!-- AI Recommendations -->
+        <div class="ai-recommendations">
+            <div class="ai-recommendation-badge">
+                <i class="fas fa-sparkles"></i>
+                AI Recommended
+            </div>
+            <div class="ai-recommendation-content">
+                <h4>Personalized Suggestions</h4>
+                <p id="aiRecommendationText">Ask our AI assistant for personalized recommendations based on your interests</p>
+                <button class="ai-recommendation-btn" id="getAiRecommendation">
+                    <i class="fas fa-magic"></i>
+                    Get AI Suggestions
+                </button>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+            <span>Scroll to Explore</span>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <section class="quick-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card stat-card-1">
+                    <div class="stat-icon">
+                        <i class="fas fa-umbrella-beach"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>7500+ km</h3>
+                        <p>Coastline</p>
+                    </div>
+                    <div class="stat-wave"></div>
+                </div>
+                <div class="stat-card stat-card-2">
+                    <div class="stat-icon">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>28</h3>
+                        <p>States & 8 UTs</p>
+                    </div>
+                    <div class="stat-wave"></div>
+                </div>
+                <div class="stat-card stat-card-3">
+                    <div class="stat-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>5000+</h3>
+                        <p>Traditional Dishes</p>
+                    </div>
+                    <div class="stat-wave"></div>
+                </div>
+                <div class="stat-card stat-card-4">
+                    <div class="stat-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>AI Powered</h3>
+                        <p>Smart Planning</p>
+                    </div>
+                    <div class="stat-wave"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Destinations -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-header">
+                <h2 class="section-title">Find Your Perfect Destination</h2>
+                <p class="section-subtitle">Discover India's diverse landscapes, from snow-capped mountains to tropical beaches</p>
+            </div>
+
+            <div class="search-container">
+                <div class="search-box-wrapper">
+                    <div class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <input type="text" id="destinationSearch" placeholder="Search destinations, temples, heritage sites...">
+                    <button id="searchBtn" class="search-button">
+                        <i class="fas fa-search"></i>
+                        Search
+                    </button>
+                </div>
+
+                <div class="search-filters">
+                    <div class="filter-group">
+                        <label><i class="fas fa-map"></i> State</label>
+                        <select id="stateFilter" class="filter-select">
+                            <option value="">All States</option>
+                            <option value="uttar-pradesh">Uttar Pradesh</option>
+                            <option value="rajasthan">Rajasthan</option>
+                            <option value="kerala">Kerala</option>
+                            <option value="goa">Goa</option>
+                            <option value="punjab">Punjab</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label><i class="fas fa-tag"></i> Category</label>
+                        <select id="categoryFilter" class="filter-select">
+                            <option value="">All Categories</option>
+                            <option value="heritage">Heritage</option>
+                            <option value="beach">Beaches</option>
+                            <option value="wildlife">Wildlife</option>
+                            <option value="spiritual">Spiritual</option>
+                            <option value="adventure">Adventure</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label><i class="fas fa-robot"></i> AI Assistant</label>
+                        <select id="aiRecommendFilter" class="filter-select">
+                            <option value="">Ask AI for Suggestions</option>
+                            <option value="family">Family Friendly</option>
+                            <option value="budget">Budget Trips</option>
+                            <option value="luxury">Luxury Experiences</option>
+                            <option value="offbeat">Offbeat Places</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="popular-searches">
+                <span>Popular:</span>
+                <a href="#" class="tag">Taj Mahal</a>
+                <a href="#" class="tag">Goa Beaches</a>
+                <a href="#" class="tag">Kerala Backwaters</a>
+                <a href="#" class="tag">Himalayan Trek</a>
+                <button class="ai-suggest-tag" id="aiSuggestDestinations">
+                    <i class="fas fa-robot"></i>
+                    AI Suggestions
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Destinations -->
+    <section id="destinations" class="featured-destinations">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Destinations</h2>
+                <p class="section-subtitle">Explore India's most popular tourist destinations</p>
+                <div class="section-actions">
+                    <button class="filter-toggle">
+                        <i class="fas fa-sliders-h"></i>
+                        Filters
+                    </button>
+                    <button class="ai-sort-btn" id="aiSortDestinations">
+                        <i class="fas fa-robot"></i>
+                        AI Sort
+                    </button>
+                    <button class="view-map">
+                        <i class="fas fa-map"></i>
+                        View on Map
+                    </button>
+                </div>
+            </div>
+
+            <div class="destinations-grid" id="destinationsGrid">
+                <!-- Destinations loaded dynamically -->
+            </div>
+
+            <div class="view-all-container">
+                <button id="viewAllBtn" class="view-all-btn">
+                    <i class="fas fa-globe-asia"></i>
+                    View All 100+ Destinations
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <div class="destination-counter">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>12 destinations shown</span>
+                </div>
+                <button class="ai-personalize-btn" id="aiPersonalizeDestinations">
+                    <i class="fas fa-user-cog"></i>
+                    Personalize with AI
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Features Section -->
+    <section class="ai-features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">AI-Powered Features</h2>
+                <p class="section-subtitle">Experience India like never before with our intelligent AI assistant</p>
+            </div>
+
+            <div class="ai-features-grid">
+                <div class="ai-feature-card">
+                    <div class="ai-feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="ai-feature-content">
+                        <h4>Smart Trip Planner</h4>
+                        <p>Get personalized itineraries based on your preferences, budget, and travel style</p>
+                        <button class="ai-feature-btn" id="useAiPlanner">
+                            Try Now
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="ai-feature-sparkle"></div>
+                </div>
+
+                <div class="ai-feature-card">
+                    <div class="ai-feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="ai-feature-content">
+                        <h4>24/7 AI Assistant</h4>
+                        <p>Get instant answers to all your travel questions in multiple languages</p>
+                        <button class="ai-feature-btn" id="openAiChat">
+                            Chat Now
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="ai-feature-sparkle"></div>
+                </div>
+
+                <div class="ai-feature-card">
+                    <div class="ai-feature-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="ai-feature-content">
+                        <h4>Smart Recommendations</h4>
+                        <p>Discover hidden gems and personalized suggestions based on your interests</p>
+                        <button class="ai-feature-btn" id="getAiRecommendations">
+                            Explore
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="ai-feature-sparkle"></div>
+                </div>
+
+                <div class="ai-feature-card">
+                    <div class="ai-feature-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <div class="ai-feature-content">
+                        <h4>Real-time Translation</h4>
+                        <p>Communicate easily with locals using our AI-powered translation tool</p>
+                        <button class="ai-feature-btn" id="openAiTranslator">
+                            Translate
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="ai-feature-sparkle"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiences Section -->
+    <section id="experiences" class="experiences-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Unique Experiences</h2>
+                <p class="section-subtitle">Create unforgettable memories with these exclusive experiences</p>
+                <button class="ai-experience-btn" id="aiSuggestExperiences">
+                    <i class="fas fa-robot"></i>
+                    Get AI Recommendations
+                </button>
+            </div>
+
+            <div class="experiences-grid">
+                <!-- Experience 1: Yoga Retreat -->
+                <div class="experience-card experience-1">
+                    <div class="experience-badge">
+                        <i class="fas fa-spa"></i>
+                        Wellness
+                    </div>
+                    <div class="experience-image">
+                        <img src="https://plus.unsplash.com/premium_photo-1713908274745-bc55be97c898?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8WW9nYSUyMFJldHJlYXQlM0F8ZW58MHx8MHx8fDA%3D" alt="Yoga Retreat" loading="lazy">
+                        <div class="experience-overlay">
+                            <div class="experience-info">
+                                <h4>Yoga & Meditation Retreat</h4>
+                                <p>Rishikesh, Kerala, Goa</p>
+                                <div class="experience-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>4.8</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="experience-content">
+                        <h3>Yoga Retreats in Rishikesh</h3>
+                        <p>Experience ancient yoga traditions in the birthplace of yoga with certified instructors</p>
+                        <div class="experience-details">
+                            <span class="duration"><i class="fas fa-clock"></i> 5-14 Days</span>
+                            <span class="level"><i class="fas fa-user"></i> All Levels</span>
+                        </div>
+                        <div class="experience-price">
+                            <span class="price">From $350</span>
+                            <button class="book-experience">
+                                <i class="fas fa-calendar-alt"></i>
+                                Book Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 2: Wildlife Safari -->
+                <div class="experience-card experience-2">
+                    <div class="experience-badge">
+                        <i class="fas fa-paw"></i>
+                        Adventure
+                    </div>
+                    <div class="experience-image">
+                        <img src="https://images.unsplash.com/photo-1763878119119-aff0820121fd?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Wildlife Safari" loading="lazy">
+                        <div class="experience-overlay">
+                            <div class="experience-info">
+                                <h4>Wildlife Safari</h4>
+                                <p>Ranthambore, Bandhavgarh, Kaziranga</p>
+                                <div class="experience-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span>5.0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="experience-content">
+                        <h3>Tiger Safari in Ranthambore</h3>
+                        <p>Spot Royal Bengal Tigers in their natural habitat with expert guides and trackers</p>
+                        <div class="experience-details">
+                            <span class="duration"><i class="fas fa-clock"></i> 3-7 Days</span>
+                            <span class="level"><i class="fas fa-user"></i> Family Friendly</span>
+                        </div>
+                        <div class="experience-price">
+                            <span class="price">From $250</span>
+                            <button class="book-experience">
+                                <i class="fas fa-calendar-alt"></i>
+                                Book Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 3: Heritage Walk -->
+                <div class="experience-card experience-3">
+                    <div class="experience-badge">
+                        <i class="fas fa-landmark"></i>
+                        Cultural
+                    </div>
+                    <div class="experience-image">
+                        <img src="https://images.unsplash.com/photo-1543857243-205f7fae8f7d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8SGVyaXRhZ2UlMjBXYWxrfGVufDB8fDB8fHww" alt="Heritage Walk" loading="lazy">
+                        <div class="experience-overlay">
+                            <div class="experience-info">
+                                <h4>Heritage Walks</h4>
+                                <p>Delhi, Jaipur, Hyderabad</p>
+                                <div class="experience-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>4.7</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="experience-content">
+                        <h3>Historic City Walks</h3>
+                        <p>Walk through centuries of history in ancient cities with knowledgeable local guides</p>
+                        <div class="experience-details">
+                            <span class="duration"><i class="fas fa-clock"></i> 1-3 Days</span>
+                            <span class="level"><i class="fas fa-user"></i> Easy Walking</span>
+                        </div>
+                        <div class="experience-price">
+                            <span class="price">From $120</span>
+                            <button class="book-experience">
+                                <i class="fas fa-calendar-alt"></i>
+                                Book Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Festivals Section -->
+    <section id="festivals" class="festivals-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Upcoming Festivals</h2>
+                <p class="section-subtitle">Experience the vibrant festivals of India throughout the year</p>
+            </div>
+
+            <div class="festivals-carousel">
+                <!-- Festival 1: Holi -->
+                <div class="festival-card festival-1">
+                    <div class="festival-date">
+                        <span class="month">MAR</span>
+                        <span class="day">25</span>
+                    </div>
+                    <div class="festival-image">
+                        <img src="https://media.istockphoto.com/id/533327527/photo/indian-women-throwing-colored-holi-powder.jpg?s=2048x2048&w=is&k=20&c=rAdCBCWzJOChwA6bhs8zTBH6dAgsjPjrbRNj2yeZSoI=" alt="Holi" loading="lazy">
+                        <div class="festival-overlay">
+                            <div class="festival-type">
+                                <i class="fas fa-paint-brush"></i>
+                                Festival of Colors
+                            </div>
+                        </div>
+                    </div>
+                    <div class="festival-content">
+                        <h4>Holi Festival</h4>
+                        <p>Celebrate the victory of good over evil with colorful powders and water</p>
+                        <div class="festival-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Nationwide Celebration</span>
+                        </div>
+                        <div class="festival-highlights">
+                            <span><i class="fas fa-music"></i> Music</span>
+                            <span><i class="fas fa-utensils"></i> Food</span>
+                            <span><i class="fas fa-drum"></i> Dance</span>
+                        </div>
+                        <button class="festival-info">
+                            <i class="fas fa-info-circle"></i>
+                            More Info
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Festival 2: Baisakhi -->
+                <div class="festival-card festival-2">
+                    <div class="festival-date">
+                        <span class="month">APR</span>
+                        <span class="day">14</span>
+                    </div>
+                    <div class="festival-image">
+                        <img src="https://plus.unsplash.com/premium_photo-1698500034175-3520e1021c2f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QmFpc2FraGklMjBGZXN0aXZhbCUzQSoqJTIwU2lraCUyMGNlbGVicmF0aW9ufGVufDB8fDB8fHww" alt="Baisakhi" loading="lazy">
+                        <div class="festival-overlay">
+                            <div class="festival-type">
+                                <i class="fas fa-wheat-alt"></i>
+                                Harvest Festival
+                            </div>
+                        </div>
+                    </div>
+                    <div class="festival-content">
+                        <h4>Baisakhi Festival</h4>
+                        <p>Sikh harvest festival marking the beginning of the solar new year</p>
+                        <div class="festival-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Punjab & North India</span>
+                        </div>
+                        <div class="festival-highlights">
+                            <span><i class="fas fa-dharmachakra"></i> Religious</span>
+                            <span><i class="fas fa-utensils"></i> Langar</span>
+                            <span><i class="fas fa-music"></i> Bhangra</span>
+                        </div>
+                        <button class="festival-info">
+                            <i class="fas fa-info-circle"></i>
+                            More Info
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Festival 3: Onam -->
+                <div class="festival-card festival-3">
+                    <div class="festival-date">
+                        <span class="month">AUG</span>
+                        <span class="day">30</span>
+                    </div>
+                    <div class="festival-image">
+                        <img src="https://images.unsplash.com/photo-1559036212-8a38f9f95793?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8T25hbSUyMEZlc3RpdmFsJTNBKiolMjBLZXJhbGElMjBib2F0JTIwcmFjZXxlbnwwfHwwfHx8MA%3D%3D" alt="Onam" loading="lazy">
+                        <div class="festival-overlay">
+                            <div class="festival-type">
+                                <i class="fas fa-ship"></i>
+                                Boat Race Festival
+                            </div>
+                        </div>
+                    </div>
+                    <div class="festival-content">
+                        <h4>Onam Festival</h4>
+                        <p>Kerala's harvest festival featuring spectacular snake boat races</p>
+                        <div class="festival-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Kerala, South India</span>
+                        </div>
+                        <div class="festival-highlights">
+                            <span><i class="fas fa-drum"></i> Boat Race</span>
+                            <span><i class="fas fa-utensils"></i> Sadya Feast</span>
+                            <span><i class="fas fa-music"></i> Kathakali</span>
+                        </div>
+                        <button class="festival-info">
+                            <i class="fas fa-info-circle"></i>
+                            More Info
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Festival 4: Durga Puja -->
+                <div class="festival-card festival-4">
+                    <div class="festival-date">
+                        <span class="month">OCT</span>
+                        <span class="day">24</span>
+                    </div>
+                    <div class="festival-image">
+                        <img src="https://plus.unsplash.com/premium_photo-1675597047093-196fa83d8e5b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RHVyZ2ElMjBQdWphJTNBKiolMjBEdXJnYSUyMGlkb2wlMjAlNjAlNjAlNjB8ZW58MHx8MHx8fDA%3D" alt="Durga Puja" loading="lazy">
+                        <div class="festival-overlay">
+                            <div class="festival-type">
+                                <i class="fas fa-pray"></i>
+                                Religious Festival
+                            </div>
+                        </div>
+                    </div>
+                    <div class="festival-content">
+                        <h4>Durga Puja</h4>
+                        <p>Grand celebration of Goddess Durga's victory over evil</p>
+                        <div class="festival-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>West Bengal, East India</span>
+                        </div>
+                        <div class="festival-highlights">
+                            <span><i class="fas fa-palette"></i> Art</span>
+                            <span><i class="fas fa-utensils"></i> Food</span>
+                            <span><i class="fas fa-drum"></i> Dhak</span>
+                        </div>
+                        <button class="festival-info">
+                            <i class="fas fa-info-circle"></i>
+                            More Info
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="festivals-cta">
+                <p>Want to experience these festivals?</p>
+                <button class="festival-tour-btn">
+                    <i class="fas fa-calendar-star"></i>
+                    Book Festival Tour Packages
+                </button>
+                <button class="ai-festival-btn" id="aiFestivalTips">
+                    <i class="fas fa-robot"></i>
+                    Get AI Festival Tips
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plan Your Trip Section -->
+    <section id="plan" class="plan-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Plan Your Trip</h2>
+                <p class="section-subtitle">Everything you need to plan your perfect Indian adventure</p>
+            </div>
+
+            <div class="plan-steps">
+                <div class="step-card step-1">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="step-content">
+                        <h4>AI Trip Planner</h4>
+                        <p>Let AI create your personalized itinerary based on preferences</p>
+                        <a href="#" class="step-link" id="openAiPlanner2">
+                            Plan with AI
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="step-wave"></div>
+                </div>
+
+                <div class="step-card step-2">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-map"></i>
+                    </div>
+                    <div class="step-content">
+                        <h4>Create Itinerary</h4>
+                        <p>Plan your route with our intelligent itinerary builder</p>
+                        <a href="#" class="step-link">
+                            Build Itinerary
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="step-wave"></div>
+                </div>
+
+                <div class="step-card step-3">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <div class="step-content">
+                        <h4>Book Accommodation</h4>
+                        <p>Find hotels, homestays, and resorts across India</p>
+                        <a href="#" class="step-link">
+                            Book Now
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="step-wave"></div>
+                </div>
+
+                <div class="step-card step-4">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="step-content">
+                        <h4>Local Transport</h4>
+                        <p>Arrange taxis, trains, and domestic flights</p>
+                        <a href="#" class="step-link">
+                            View Options
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="step-wave"></div>
+                </div>
+            </div>
+
+            <div class="travel-guides">
+                <div class="guides-header">
+                    <h3>Essential Travel Guides</h3>
+                    <p>Everything you need to know about traveling in India</p>
+                </div>
+
+                <div class="guides-grid">
+                    <div class="guide-card guide-1">
+                        <div class="guide-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="guide-content">
+                            <h5>AI Food Guide</h5>
+                            <p>Ask AI for personalized food recommendations</p>
+                        </div>
+                        <div class="guide-hover">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="guide-card guide-2">
+                        <div class="guide-icon">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <div class="guide-content">
+                            <h5>Shopping Guide</h5>
+                            <p>Best souvenirs and local markets</p>
+                        </div>
+                        <div class="guide-hover">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="guide-card guide-3">
+                        <div class="guide-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <div class="guide-content">
+                            <h5>AI Translator</h5>
+                            <p>Real-time translation assistance</p>
+                        </div>
+                        <div class="guide-hover">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="guide-card guide-4">
+                        <div class="guide-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="guide-content">
+                            <h5>AI Tips</h5>
+                            <p>Smart travel tips and hacks</p>
+                        </div>
+                        <div class="guide-hover">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Photo Gallery</h2>
+                <p class="section-subtitle">Visual journey through Incredible India</p>
+                <button class="ai-describe-btn" id="aiDescribeImages">
+                    <i class="fas fa-robot"></i>
+                    AI Describe Images
+                </button>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item large">
+                    <img src="https://plus.unsplash.com/premium_photo-1697730359975-8f1885936530?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8VGFqJTIwTWFoYWwlMkMlMjBBZ3JhfGVufDB8fDB8fHww" alt="Taj Mahal" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h4>Taj Mahal, Agra</h4>
+                            <p>Symbol of Eternal Love • UNESCO World Heritage</p>
+                            <div class="gallery-actions">
+                                <button class="gallery-view">
+                                    <i class="fas fa-expand"></i>
+                                    View
+                                </button>
+                                <button class="ai-describe" data-image="Taj Mahal">
+                                    <i class="fas fa-robot"></i>
+                                    AI Describe
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://plus.unsplash.com/premium_photo-1697729438401-fcb4ff66d9a8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8S2VyYWxhJTIwQmFja3dhdGVyc3xlbnwwfHwwfHx8MA%3D%3D" alt="Kerala Backwaters" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h4>Kerala Backwaters</h4>
+                            <p>Serene Waterways</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://plus.unsplash.com/premium_photo-1697730373328-26e408d64025?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8SGF3YSUyME1haGFsJTJDJTIwSmFpcHVyfGVufDB8fDB8fHww" alt="Hawa Mahal" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h4>Hawa Mahal, Jaipur</h4>
+                            <p>Pink City Heritage</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://plus.unsplash.com/premium_photo-1697729701846-e34563b06d47?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8R29hJTIwQmVhY2hlcyoqfGVufDB8fDB8fHww" alt="Goa Beaches" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h4>Goa Beaches</h4>
+                            <p>Sun, Sand & Sea</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1616688185019-166ff5acc3a3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8TGFkYWtoJTIwTW91bnRhaW5zfGVufDB8fDB8fHww" alt="Ladakh Mountains" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-content">
+                            <h4>Ladakh Mountains</h4>
+                            <p>Adventure Paradise</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-cta">
+                <p>Explore more breathtaking photos of India</p>
+                <button class="view-gallery-btn">
+                    <i class="fas fa-images"></i>
+                    View Complete Gallery
+                </button>
+                <button class="ai-gallery-btn" id="aiCurateGallery">
+                    <i class="fas fa-robot"></i>
+                    AI Curate Gallery
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h2>Get AI-Powered Travel Updates</h2>
+                <p>Subscribe for personalized travel tips, exclusive AI-generated itineraries, and smart destination updates</p>
+                <div class="subscribe-form">
+                    <div class="input-group">
+                        <input type="email" placeholder="Enter your email for AI insights">
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                            Get AI Updates
+                        </button>
+                    </div>
+                    <p class="privacy-note">
+                        <i class="fas fa-lock"></i>
+                        We respect your privacy. Unsubscribe at any time.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <div class="footer-logo">
+                        <i class="fas fa-torii-gate"></i>
+                        <div class="footer-logo-text">
+                            <h4>Incredible India</h4>
+                            <p>Powered by AI Assistant</p>
+                        </div>
+                    </div>
+                    <p class="about-text">Discover the incredible diversity of India with our AI-powered travel assistant - from ancient temples to modern cities.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link youtube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#destinations"><i class="fas fa-chevron-right"></i> Destinations</a></li>
+                        <li><a href="#experiences"><i class="fas fa-chevron-right"></i> Experiences</a></li>
+                        <li><a href="#festivals"><i class="fas fa-chevron-right"></i> Festivals</a></li>
+                        <li><a href="#plan"><i class="fas fa-chevron-right"></i> AI Trip Planner</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section support">
+                    <h4>AI Support</h4>
+                    <ul>
+                        <li><a href="#" id="openAiChatFooter"><i class="fas fa-robot"></i> AI Chat Assistant</a></li>
+                        <li><a href="#" id="openAiTranslatorFooter"><i class="fas fa-language"></i> AI Translator</a></li>
+                        <li><a href="#" id="openAiPlannerFooter"><i class="fas fa-magic"></i> AI Trip Planner</a></li>
+                        <li><a href="#" id="openAiGuideFooter"><i class="fas fa-lightbulb"></i> AI Travel Guide</a></li>
+                        <li><a href="#"><i class="fas fa-headset"></i> 24/7 AI Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section contact">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Ministry of Tourism, New Delhi, India</p>
+                        <p><i class="fas fa-robot"></i> AI Assistant: Always Online</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; Incredible India. All rights reserved. | Ministry of Tourism, Government of India</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Use</a>
+                        <a href="#">AI Ethics</a>
+                        <a href="#">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Voice Assistant -->
+    <div class="ai-voice-assistant">
+        <button class="ai-voice-btn" id="aiVoiceAssistant">
+            <i class="fas fa-microphone"></i>
+            <span class="ai-voice-pulse"></span>
+        </button>
+        <div class="ai-voice-status" id="aiVoiceStatus">
+            Click to speak
+        </div>
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
