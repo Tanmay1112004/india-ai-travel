@@ -1,5 +1,5 @@
 // ===== GEMINI AI CONFIGURATION =====
-const GEMINI_API_KEY = 'AIzaSyCTNoM5actAwOaiKA0md0qDWZgcLD2ZAvw';
+const GEMINI_API_KEY = 'gemini-api-key';
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent';
 
 // ===== TOURISM DATA =====
